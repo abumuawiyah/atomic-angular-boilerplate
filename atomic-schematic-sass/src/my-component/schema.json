@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsMyComponent",
+  "title": "My Component Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Your Component Name",
+      "x-prompt": "what is the component name?"
+    },
+    "componentType": {
+      "type": "string",
+      "description": "description",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "x-prompt": {
+        "message": "What is your component type?",
+        "type": "list",
+        "multiselect": false,
+        "items": [
+          "Atoms",
+          "Molecules",
+          "Organisms",
+          "Util"
+        ]
+      }
+    }
+  },
+  "required": ["name", "componentType"]
+}

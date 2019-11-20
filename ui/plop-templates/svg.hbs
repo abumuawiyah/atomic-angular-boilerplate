@@ -1,0 +1,31 @@
+import {
+  Component,
+  OnInit,
+  HostBinding,
+  Input,
+  AfterContentInit
+} from "@angular/core";
+import { css } from "emotion";
+
+@Component({
+  selector: "a-{{lowerCase name}}-icon",
+  template: ``
+})
+export class {{properCase name}}IconComponent implements OnInit, AfterContentInit {
+  @HostBinding("class") className;
+  @Input() customStyle: string;
+
+  constructor() {}
+
+  ngOnInit() {
+    const { customStyle } = this;
+    this.className = css`
+      & svg {
+        fill: #184da8;
+        ${customStyle}
+      }
+    `;
+  }
+
+  ngAfterContentInit() {}
+}

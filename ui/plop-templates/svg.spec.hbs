@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { {{properCase name}}IconComponent } from './{{lowerCase name}}-icon.component';
+
+describe('{{properCase name}}IconComponent', () => {
+  let component: {{properCase name}}IconComponent;
+  let fixture: ComponentFixture<{{properCase name}}IconComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ {{properCase name}}IconComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent({{properCase name}}IconComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

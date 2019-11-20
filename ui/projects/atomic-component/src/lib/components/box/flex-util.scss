@@ -1,0 +1,52 @@
+@mixin _support-value($value, $list) {
+    @if index($list, $value) == null {
+      @error "not support #{$value}. possible values #{$list}";
+    }
+  }
+  
+  @mixin _only-support-int($value) {
+    @if type-of($value) != number or unit($value) != '' {
+      @error "not support #{$value} only int";
+    }
+  }
+  
+  @mixin _fx-layout-align-main-axis($value) {
+    @include _support-value($value, (null, start, center, end, space-around, space-between, space-evenly));
+  
+    @if $value != null {
+      $value: if($value == start or $value == end, flex-#{$value}, $value);
+      justify-content: $value;
+    }
+  }
+  
+  @mixin _fx-layout-align-cross-axis($value) {
+    @include _support-value($value, (null, start, center, end, space-around, space-between, space-evenly, stretch));
+  
+    @if $value != null {
+      $value: if($value == start or $value == end, flex-#{$value}, $value);
+      align-content: $value;
+      align-items: $value;
+    }
+  }
+  
+  @mixin _fx-layout-gap($value, $direction) {
+    @if $value != null {
+      @include _support-value(unit($value), ('%', px, vh, vw));
+      @include _support-value($direction, (column, row, column-reverse, row-reverse));
+  
+      $margin-direction: if($direction == column, bottom, null);
+      $margin-direction: if($direction == column-reverse, top, $margin-direction);
+      $margin-direction: if($direction == row-reverse, left, $margin-direction);
+      $margin-direction: if($direction == row, right, $margin-direction);
+  
+      & > *:not(:last-child) {
+        margin-#{$margin-direction}: $value;
+      }
+    }
+  }
+  
+  @mixin _fx-wrap($value) {
+    @if $value != null {
+      flex-wrap: $value;
+    }
+  }

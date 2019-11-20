@@ -1,0 +1,31 @@
+import { action } from "@storybook/addon-actions";
+import { storiesOf, moduleMetadata } from "@storybook/angular";
+import { boolean, select, withKnobs } from "@storybook/addon-knobs";
+
+import { CommonModule } from "@angular/common";
+import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+
+storiesOf("Components|Atoms/{{properCase name}}", module)
+  .addDecorator(withKnobs)
+  .addDecorator(
+    moduleMetadata({
+      imports: [CommonModule, AtomicComponentModule],
+      schemas: [],
+      declarations: [],
+      entryComponents: []
+    })
+  )
+  .add("ui", () => {
+    return {
+      template: `
+        <ui-theme-provider>
+          <ui-{{lowerCase name}}>
+            {{properCase name}}
+          </ui-{{lowerCase name}}>
+        </ui-theme-provider>
+      `,
+      props: {
+        
+      }
+    };
+  });

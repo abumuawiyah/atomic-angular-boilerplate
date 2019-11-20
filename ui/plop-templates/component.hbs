@@ -1,0 +1,54 @@
+/**
+ *
+ * {{ properCase name }}
+ * {{#if description.length}}  Description: {{ description }} {{/if}}
+ */
+
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  AfterContentInit,
+  SimpleChanges
+} from "@angular/core";
+import { css } from "emotion";
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+
+@Component({
+  selector: "ui-{{lowerCase name }}",
+  template: `
+    <ng-content></ng-content>
+  `
+})
+export class {{ properCase name }}Component implements OnInit, AfterContentInit {
+  @HostBinding("class") className;
+  @Input() customStyle: string;
+  @Input() variant: string;
+  defaultInputs = new BehaviorSubject<any>({});
+
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    const inputs = Object.keys(changes).reduce(function(result, item) {
+      result[item] = changes[item].currentValue;
+      return result;
+    }, {});
+    this.defaultInputs.next({ ...this.defaultInputs.getValue(), ...inputs });
+    this.className = `${this.getDynamicStyle(this.defaultInputs.getValue())}`;
+  }
+
+  getDynamicStyle(inputs) {
+    return css`
+      ${inputs.variant === "" && css``}
+    `;
+  }
+
+  ngOnInit() {
+    const { customStyle, ...others } = this;
+    this.defaultInputs.next({ ...this.defaultInputs.getValue(), ...others });
+    this.className = `${this.getDynamicStyle(this.defaultInputs.getValue())}`;
+  }
+
+  ngAfterContentInit() {}
+}
