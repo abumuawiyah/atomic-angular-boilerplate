@@ -3,8 +3,8 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-// import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
-import { AtomicComponentModule } from "atomic-component";
+import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+// import { AtomicComponentModule } from "atomic-component";
 
 storiesOf("Foundation", module)
   .addDecorator(withKnobs)
@@ -20,8 +20,18 @@ storiesOf("Foundation", module)
     return {
       template: `
         <ui-theme-provider>
+          <style>
+            .container {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+              grid-gap: 10px;
+              .icon-text {
+                font-size: 10px;
+              }
+            }
+          </style>
           <ng-template let-palette="palette">
-            <ui-box  w="80vw" mt="100px">
+            <ui-box class="container" w="80vw" mt="100px">
               <ui-box flex flexDirection="column" justifyContent="center" alignItems="center">
                 <a-chevron-down-icon></a-chevron-down-icon>
                 <span class="icon-text">a-chevron-down-icon</span>
@@ -46,15 +56,6 @@ storiesOf("Foundation", module)
           </ng-template>
         </ui-theme-provider>
       `,
-      props: {
-        container: `
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-          grid-gap: 10px;
-          .icon-text {
-            font-size: 10px;
-          }
-        `
-      }
+      props: {}
     };
   });

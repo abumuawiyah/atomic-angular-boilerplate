@@ -1,0 +1,109 @@
+@import "./box/flex-mixin";
+
+.fx-d-row {
+ @include fx-layout(row);
+}
+
+.fx-d-column {
+ @include fx-layout(column);
+}
+
+.fx-jc-sb {
+  @include fx-justify-content(space-between)
+}
+
+.fx-jc-sa {
+  @include fx-justify-content(space-around)
+}
+
+.fx-jc-fe {
+  @include fx-justify-content(flex-end)
+}
+
+.fx-jc-fs {
+  @include fx-justify-content(flex-start)
+}
+
+.fx-jc-c {
+  @include fx-justify-content(center)
+}
+
+.fx-jc-se {
+  @include fx-justify-content(space-evenly)
+}
+
+.fx-ai-s {
+  @include fx-align-items(stretch)
+}
+
+.fx-ai-fs {
+  @include fx-align-items(flex-start)
+}
+
+.fx-ai-fe {
+  @include fx-align-items(flex-end)
+}
+
+.fx-ai-c {
+  @include fx-align-items(center)
+}
+
+.fx-ac-sb {
+  @include fx-align-content(space-between)
+}
+
+.fx-ac-sa {
+  @include fx-align-content(space-around)
+}
+
+.fx-ac-fe {
+  @include fx-align-content(flex-end)
+}
+
+.fx-ac-fs {
+  @include fx-align-content(flex-start)
+}
+
+.fx-ac-c {
+  @include fx-align-content(center)
+}
+
+.fx-ac-se {
+  @include fx-align-content(space-evenly)
+}
+
+.fx-as-a {
+  @include fx-align-content(auto)
+}
+
+.fx-as-fs {
+  @include fx-align-content(flex-start)
+}
+
+.fx-as-fe {
+  @include fx-align-content(flex-end)
+}
+
+.fx-as-c {
+  @include fx-align-content(center)
+}
+
+.fx-as-b {
+  @include fx-align-content(baseline)
+}
+
+.fx-as-s {
+  @include fx-align-content(stretch)
+}
+
+.fx-fw-n {
+  @include fx-flex-wrap(nowrap)
+}
+
+.fx-fw-w {
+  @include fx-flex-wrap(wrap)
+}
+
+.fx-fw-wr {
+  @include fx-flex-wrap(wrap-reverse)
+}

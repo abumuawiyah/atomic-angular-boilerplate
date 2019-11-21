@@ -10,8 +10,6 @@ import { TypographyComponent } from "./components/typography/typography.componen
 import { BuildIconComponent } from "./svg/build/build-icon.component";
 import { DoneIconComponent } from "./svg/done/done-icon.component";
 import { FlexDirective } from "./components/box/flex.directive";
-import { Test1Component } from './components/test1/test1.component';
-import { Test2Component } from './components/test2/test2.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +22,7 @@ import { Test2Component } from './components/test2/test2.component';
     DoneIconComponent,
     SettingIconComponent,
     TypographyComponent,
-    FlexDirective,
-    Test1Component,
-    Test2Component
+    FlexDirective
   ],
   imports: [CommonModule],
   exports: [
@@ -39,9 +35,7 @@ import { Test2Component } from './components/test2/test2.component';
     DoneIconComponent,
     SettingIconComponent,
     TypographyComponent,
-    FlexDirective,
-    Test1Component,
-    Test2Component
+    FlexDirective
   ]
 })
 export class AtomicComponentModule {}
